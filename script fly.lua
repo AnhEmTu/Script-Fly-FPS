@@ -2,6 +2,30 @@ repeat wait() until game:IsLoaded() and game.Players.LocalPlayer
 
 setclipboard("https://discord.gg/heSHddPs")
 
+local love = Instance.new("ScreenGui")
+local button = Instance.new("TextButton")
+love.graphics.setColor(255, 255, 255, 50) -- Màu trắng với độ trong suốt 50%
+
+function love.draw()
+    love.graphics.print("FPS: " .. love.timer.getFPS(), 10, 10)
+end
+
+
+-- Cấu hình ScreenGui
+screenGui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+
+-- Cấu hình Button
+button.Size = UDim2.new(0, 200000, 0, 50000) -- Kích thước: 200x50 pixel
+button.Position = UDim2.new(0.5, -100, 0.5, -25) -- Vị trí giữa màn hình
+button.Text = "ẤN ĐỂ SAO CHÉP LINK YOUTUBE"
+button.Parent = screenGui
+
+-- Sự kiện khi bấm nút
+button.MouseButton1Click:Connect(function()
+       setclipboard("https://youtube.com")
+    print("Button clicked!")
+end)
+-------
 local main = Instance.new("ScreenGui")
 local Frame = Instance.new("Frame")
 local up = Instance.new("TextButton")
