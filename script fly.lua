@@ -144,7 +144,7 @@ speed.BackgroundColor3 = Color3.fromRGB(255, 85, 0)
 speed.Position = UDim2.new(0.468421042, 0, 0.491228074, 0)
 speed.Size = UDim2.new(0, 44, 0, 28)
 speed.Font = Enum.Font.SourceSans
-speed.Text = "1"
+speed.Text = "
 speed.TextColor3 = Color3.fromRGB(0, 0, 0)
 speed.TextScaled = true
 speed.TextSize = 14.000
@@ -173,24 +173,23 @@ nowe = false
 
 game:GetService("StarterGui"):SetCore("SendNotification", {    
         Title = "Đang Tải",
-        Text = "
-        　　　　/　,ー､ 〉　/　,ー､ 〉")
-    　　　       ＼ °•, !--─‐-i  ./  /.•")
-    　　     　 ／｀ｰ`　　　 L/／｀ヽ､")
-    　　 　   /　 ／,　 /|　 ,　 ,　　　`.")
-    　　 　ｲ 　/ /-‐/　ｉ　L_ ﾊ ヽ!　   i   ")
-    　　     ﾚ  ﾍ 7ｲ｀ﾄ　 ﾚ`ｧ-ﾄ､!ハ    |　 |")
-    　　　   !,/7.    O　   　 O       |   |　 .!")
-    　　　    |从`　　   _　　 ,,,,  / |/ 　 |")
-    　　　     ﾚ`| i＞.､,,__　_,.イ /     　|")
-    　　　　　 ﾚ`| | / k_７_/ﾚ`ヽ,　ﾊ.　|")
-    　　　　　　 | |/i 〈|/　 i　,.ﾍ |　　|")
-    　　　　　　.|/ /　ｉ： 　 ﾍ!　　＼|")
-    　　　 　 　 kヽ>､ﾊ 　 _,.ﾍ､ 　 /､!")
-    　　　　　  〈//｀Ｔ´`, ＼ ｀`7`ｰr°")
-    　　　　　   ヽL__|___i,___,ンﾚ|ノ")
-    　　　　　 　　ﾄ-,/　|___./")
-    　　　　　 　　`ｰ`　　!_,.:")        ",
+Text = "        　　　　/　,ー､ 〉　/　,ー､ 〉        ",
+Text = "    　　　       ＼ °•, !--─‐-i  ./  /.•        ",
+Text = "    　　     　 ／｀ｰ`　　　 L/／｀ヽ､        ",
+Text = "    　　 　   /　 ／,　 /|　 ,　 ,　　　`.        ",
+Text = "    　　 　ｲ 　/ /-‐/　ｉ　L_ ﾊ ヽ!　   i           ",
+Text = "    　　     ﾚ  ﾍ 7ｲ｀ﾄ　 ﾚ`ｧ-ﾄ､!ハ    |　 |        ",
+Text = "    　　　   !,/7.    O　   　 O       |   |　 .!        ",
+Text = "    　　　    |从`　　   _　　 ,,,,  / |/ 　 |        ",
+Text = "    　　　     ﾚ`| i＞.､,,__　_,.イ /     　|        ",
+Text = "    　　　　　 ﾚ`| | / k_７_/ﾚ`ヽ,　ﾊ.　|        ",
+Text = "    　　　　　　 | |/i 〈|/　 i　,.ﾍ |　　|        ",
+Text = "    　　　　　　.|/ /　ｉ： 　 ﾍ!　　＼|        ",
+Text = "    　　　 　 　 kヽ>､ﾊ 　 _,.ﾍ､ 　 /､!        ",
+Text = "    　　　　　  〈//｀Ｔ´`, ＼ ｀`7`ｰr°        ",
+Text = "    　　　　　   ヽL__|___i,___,ンﾚ|ノ        ",
+Text = "    　　　　　 　　ﾄ-,/　|___./        ",
+Text = "    　　　　　 　　`ｰ`　　!_,.:        ",
     Icon = "rbxthumb://type=Asset&id=5107182114&w=150&h=150"})
 Duration = 16;
 
