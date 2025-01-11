@@ -10,6 +10,11 @@ local plus = Instance.new("TextButton")
 local speed = Instance.new("TextLabel")
 local mine = Instance.new("TextButton")
 
+--- Discord
+setclipboard("https://discord.gg/heSHddPs")
+        end
+    
+   
 --- FPS
 
 repeat
@@ -72,8 +77,7 @@ end
 
 FPSBooster()
 
-
-
+        
 --Properties:
 
 main.Name = "R2LXHUB "
@@ -173,23 +177,7 @@ nowe = false
 
 game:GetService("StarterGui"):SetCore("SendNotification", {    
         Title = "Đang Tải",
-Text = "        　　　　/　,ー､ 〉　/　,ー､ 〉        ",
-Text = "    　　　       ＼ °•, !--─‐-i  ./  /.•        ",
-Text = "    　　     　 ／｀ｰ`　　　 L/／｀ヽ､        ",
-Text = "    　　 　   /　 ／,　 /|　 ,　 ,　　　`.        ",
-Text = "    　　 　ｲ 　/ /-‐/　ｉ　L_ ﾊ ヽ!　   i           ",
-Text = "    　　     ﾚ  ﾍ 7ｲ｀ﾄ　 ﾚ`ｧ-ﾄ､!ハ    |　 |        ",
-Text = "    　　　   !,/7.    O　   　 O       |   |　 .!        ",
-Text = "    　　　    |从`　　   _　　 ,,,,  / |/ 　 |        ",
-Text = "    　　　     ﾚ`| i＞.､,,__　_,.イ /     　|        ",
-Text = "    　　　　　 ﾚ`| | / k_７_/ﾚ`ヽ,　ﾊ.　|        ",
-Text = "    　　　　　　 | |/i 〈|/　 i　,.ﾍ |　　|        ",
-Text = "    　　　　　　.|/ /　ｉ： 　 ﾍ!　　＼|        ",
-Text = "    　　　 　 　 kヽ>､ﾊ 　 _,.ﾍ､ 　 /､!        ",
-Text = "    　　　　　  〈//｀Ｔ´`, ＼ ｀`7`ｰr°        ",
-Text = "    　　　　　   ヽL__|___i,___,ンﾚ|ノ        ",
-Text = "    　　　　　 　　ﾄ-,/　|___./        ",
-Text = "    　　　　　 　　`ｰ`　　!_,.:        ",
+        Text = "Hãy Đợi Chút Nha 👻👾",
     Icon = "rbxthumb://type=Asset&id=5107182114&w=150&h=150"})
 Duration = 16;
 
