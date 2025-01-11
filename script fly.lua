@@ -120,7 +120,7 @@ TextLabel.BackgroundColor3 = Color3.fromRGB(242, 60, 255)
 TextLabel.Position = UDim2.new(0.469327301, 0, 0, 0)
 TextLabel.Size = UDim2.new(0, 100, 0, 28)
 TextLabel.Font = Enum.Font.SourceSans
-TextLabel.Text = "gui by TBoyBoblox "
+TextLabel.Text = "2 in 1 "
 TextLabel.TextColor3 = Color3.fromRGB(0, 0, 0)
 TextLabel.TextScaled = true
 TextLabel.TextSize = 14.000
@@ -173,7 +173,24 @@ nowe = false
 
 game:GetService("StarterGui"):SetCore("SendNotification", {    
         Title = "Đang Tải",
-        Text = "Hãy Đợi Chút Nha",
+        Text = "
+        　　　　/　,ー､ 〉　/　,ー､ 〉")
+    　　　       ＼ °•, !--─‐-i  ./  /.•")
+    　　     　 ／｀ｰ`　　　 L/／｀ヽ､")
+    　　 　   /　 ／,　 /|　 ,　 ,　　　`.")
+    　　 　ｲ 　/ /-‐/　ｉ　L_ ﾊ ヽ!　   i   ")
+    　　     ﾚ  ﾍ 7ｲ｀ﾄ　 ﾚ`ｧ-ﾄ､!ハ    |　 |")
+    　　　   !,/7.    O　   　 O       |   |　 .!")
+    　　　    |从`　　   _　　 ,,,,  / |/ 　 |")
+    　　　     ﾚ`| i＞.､,,__　_,.イ /     　|")
+    　　　　　 ﾚ`| | / k_７_/ﾚ`ヽ,　ﾊ.　|")
+    　　　　　　 | |/i 〈|/　 i　,.ﾍ |　　|")
+    　　　　　　.|/ /　ｉ： 　 ﾍ!　　＼|")
+    　　　 　 　 kヽ>､ﾊ 　 _,.ﾍ､ 　 /､!")
+    　　　　　  〈//｀Ｔ´`, ＼ ｀`7`ｰr°")
+    　　　　　   ヽL__|___i,___,ンﾚ|ノ")
+    　　　　　 　　ﾄ-,/　|___./")
+    　　　　　 　　`ｰ`　　!_,.:")        ",
     Icon = "rbxthumb://type=Asset&id=5107182114&w=150&h=150"})
 Duration = 16;
 
