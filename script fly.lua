@@ -1,31 +1,47 @@
 repeat wait() until game:IsLoaded() and game.Players.LocalPlayer 
 
+---Team
+    repeat wait() until game.Players
+    repeat wait() until game.Players.LocalPlayer
+    repeat wait() until game.ReplicatedStorage
+    repeat wait() until game.ReplicatedStorage:FindFirstChild("Remotes");
+    repeat wait() until game.Players.LocalPlayer:FindFirstChild("PlayerGui");
+    repeat wait() until game.Players.LocalPlayer.PlayerGui:FindFirstChild("Main");
+    repeat wait() until game:GetService("Players")
+    repeat wait() until game:GetService("Players").LocalPlayer.Character:FindFirstChild("Energy")
+    
+    wait(0.1)
+    
+    if not game:IsLoaded() then repeat game.Loaded:Wait() until game:IsLoaded() end
+    
+    if game:GetService("Players").LocalPlayer.PlayerGui.Main:FindFirstChild("ChooseTeam") then
+        repeat wait()
+            if game:GetService("Players").LocalPlayer.PlayerGui:WaitForChild("Main").ChooseTeam.Visible == true then
+                if getgenv().Team = "Pirate" then
+                    for i, v in pairs(getconnections(game:GetService("Players").LocalPlayer.PlayerGui.Main.ChooseTeam.Container.Pirates.Frame.ViewportFrame.TextButton.Activated)) do                                                                                                
+                        v.Function()
+                    end
+                elseif getgenv().Team = "Marine" then
+                    for i, v in pairs(getconnections(game:GetService("Players").LocalPlayer.PlayerGui.Main.ChooseTeam.Container.Marines.Frame.ViewportFrame.TextButton.Activated)) do                                                                                                
+                        v.Function()
+                    end
+                else
+                    for i, v in pairs(getconnections(game:GetService("Players").LocalPlayer.PlayerGui.Main.ChooseTeam.Container.Pirates.Frame.ViewportFrame.TextButton.Activated)) do                                                                                                
+                        v.Function()
+                    end
+                end
+            end
+        until game.Players.LocalPlayer.Team ~= nil and game:IsLoaded()
+    end
+
+---End
+
+	
+---Discord
+
 setclipboard("https://discord.gg/heSHddPs")
 
-local love = Instance.new("ScreenGui")
-local button = Instance.new("TextButton")
-love.graphics.setColor(255, 255, 255, 50) -- Màu trắng với độ trong suốt 50%
-
-function love.draw()
-    love.graphics.print("FPS: " .. love.timer.getFPS(), 10, 10)
-end
-
-
--- Cấu hình ScreenGui
-screenGui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
-
--- Cấu hình Button
-button.Size = UDim2.new(0, 200000, 0, 50000) -- Kích thước: 200x50 pixel
-button.Position = UDim2.new(0.5, -100, 0.5, -25) -- Vị trí giữa màn hình
-button.Text = "ẤN ĐỂ SAO CHÉP LINK YOUTUBE"
-button.Parent = screenGui
-
--- Sự kiện khi bấm nút
-button.MouseButton1Click:Connect(function()
-       setclipboard("https://youtube.com")
-    print("Button clicked!")
-end)
--------
+---End
 local main = Instance.new("ScreenGui")
 local Frame = Instance.new("Frame")
 local up = Instance.new("TextButton")
