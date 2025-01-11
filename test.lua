@@ -1,59 +1,46 @@
--- Parent this script to a ScreenGui object in Roblox Studio.
-
--- Create UI elements
+-- Tạo một GUI cơ bản
 local player = game.Players.LocalPlayer
-local screenGui = Instance.new("ScreenGui")
-screenGui.Parent = player.PlayerGui
+local screenGui = Instance.new("ScreenGui", player.PlayerGui)
+screenGui.Name = "ColorChangeGUI"
 
-local frame = Instance.new("Frame")
-frame.Size = UDim2.new(0.4, 0, 0.4, 0)
-frame.Position = UDim2.new(0.3, 0, 0.3, 0)
-frame.BackgroundColor3 = Color3.fromRGB(50, 50, 50)
-frame.BorderSizePixel = 2
-frame.Parent = screenGui
+-- Tạo khung để chọn màu
+local frame = Instance.new("Frame", screenGui)
+frame.Size = UDim2.new(0.3, 0, 0.3, 0) -- Kích thước
+frame.Position = UDim2.new(0.35, 0, 0.35, 0) -- Vị trí giữa màn hình
+frame.BackgroundColor3 = Color3.fromRGB(200, 200, 200) -- Màu nền
 
-local title = Instance.new("TextLabel")
-title.Size = UDim2.new(1, 0, 0.2, 0)
-title.Position = UDim2.new(0, 0, 0, 0)
-title.BackgroundColor3 = Color3.fromRGB(100, 100, 255)
-title.TextColor3 = Color3.fromRGB(255, 255, 255)
-title.Text = "Block Fruits Shop"
-title.Font = Enum.Font.SourceSansBold
-title.TextScaled = true
-title.Parent = frame
+-- Tạo nút đổi màu
+local redButton = Instance.new("TextButton", frame)
+redButton.Size = UDim2.new(0.8, 0, 0.2, 0)
+redButton.Position = UDim2.new(0.1, 0, 0.1, 0)
+redButton.Text = "Red"
+redButton.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
 
-local fruitList = {"Apple", "Banana", "Pineapple"}
-local buttons = {}
+local greenButton = Instance.new("TextButton", frame)
+greenButton.Size = UDim2.new(0.8, 0, 0.2, 0)
+greenButton.Position = UDim2.new(0.1, 0, 0.4, 0)
+greenButton.Text = "Green"
+greenButton.BackgroundColor3 = Color3.fromRGB(0, 255, 0)
 
-for i, fruit in ipairs(fruitList) do
-    local button = Instance.new("TextButton")
-    button.Size = UDim2.new(0.8, 0, 0.2, 0)
-    button.Position = UDim2.new(0.1, 0, 0.2 + (i - 1) * 0.25, 0)
-    button.BackgroundColor3 = Color3.fromRGB(255, 150, 50)
-    button.Text = fruit
-    button.Font = Enum.Font.SourceSansBold
-    button.TextScaled = true
-    button.Parent = frame
+local blueButton = Instance.new("TextButton", frame)
+blueButton.Size = UDim2.new(0.8, 0, 0.2, 0)
+blueButton.Position = UDim2.new(0.1, 0, 0.7, 0)
+blueButton.Text = "Blue"
+blueButton.BackgroundColor3 = Color3.fromRGB(0, 0, 255)
 
-    -- Add click event to handle fruit selection
-    button.MouseButton1Click:Connect(function()
-        print("You selected: " .. fruit)
-        -- Add logic here to give the player the selected fruit.
-    end)
-
-    table.insert(buttons, button)
+-- Tạo chức năng đổi màu khi bấm nút
+local function changeColor(color)
+    frame.BackgroundColor3 = color -- Thay đổi màu nền khung
 end
 
-local closeButton = Instance.new("TextButton")
-closeButton.Size = UDim2.new(0.3, 0, 0.1, 0)
-closeButton.Position = UDim2.new(0.35, 0, 0.85, 0)
-closeButton.BackgroundColor3 = Color3.fromRGB(200, 50, 50)
-closeButton.Text = "Close"
-closeButton.Font = Enum.Font.SourceSansBold
-closeButton.TextScaled = true
-closeButton.Parent = frame
+redButton.MouseButton1Click:Connect(function()
+    changeColor(Color3.fromRGB(255, 0, 0)) -- Đỏ
+end)
 
--- Close button functionality
-closeButton.MouseButton1Click:Connect(function()
-    screenGui:Destroy()
+greenButton.MouseButton1Click:Connect(function()
+    changeColor(Color3.fromRGB(0, 255, 0)) -- Xanh lá
+end)
+
+blueButton.MouseButton1Click:Connect(function()
+    changeColor(Color3.fromRGB(0, 0, 255)) -- Xanh dương
 end)
