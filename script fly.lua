@@ -1,5 +1,7 @@
 repeat wait() until game:IsLoaded() and game.Players.LocalPlayer 
-    
+
+setclipboard("https://discord.gg/heSHddPs")
+
 local main = Instance.new("ScreenGui")
 local Frame = Instance.new("Frame")
 local up = Instance.new("TextButton")
@@ -10,13 +12,7 @@ local plus = Instance.new("TextButton")
 local speed = Instance.new("TextLabel")
 local mine = Instance.new("TextButton")
 
---- Discord
-setclipboard("https://discord.gg/heSHddPs")
-        end
-    
-   
---- FPS
-
+---FPS
 repeat
     wait()
 until game:IsLoaded()
@@ -77,10 +73,9 @@ end
 
 FPSBooster()
 
-        
 --Properties:
 
-main.Name = "R2LXHUB "
+main.Name = "TBoyRoblox "
 main.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
 main.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 
@@ -124,7 +119,7 @@ TextLabel.BackgroundColor3 = Color3.fromRGB(242, 60, 255)
 TextLabel.Position = UDim2.new(0.469327301, 0, 0, 0)
 TextLabel.Size = UDim2.new(0, 100, 0, 28)
 TextLabel.Font = Enum.Font.SourceSans
-TextLabel.Text = "2 in 1 "
+TextLabel.Text = "2 in 1"
 TextLabel.TextColor3 = Color3.fromRGB(0, 0, 0)
 TextLabel.TextScaled = true
 TextLabel.TextSize = 14.000
@@ -148,7 +143,7 @@ speed.BackgroundColor3 = Color3.fromRGB(255, 85, 0)
 speed.Position = UDim2.new(0.468421042, 0, 0.491228074, 0)
 speed.Size = UDim2.new(0, 44, 0, 28)
 speed.Font = Enum.Font.SourceSans
-speed.Text = "
+speed.Text = "1"
 speed.TextColor3 = Color3.fromRGB(0, 0, 0)
 speed.TextScaled = true
 speed.TextSize = 14.000
@@ -175,9 +170,9 @@ local hum = chr and chr:FindFirstChildWhichIsA("Humanoid")
 
 nowe = false
 
-game:GetService("StarterGui"):SetCore("SendNotification", {    
-        Title = "Đang Tải",
-        Text = "Hãy Đợi Chút Nha 👻👾",
+game:GetService("StarterGui"):SetCore("SendNotification", { 
+    Title = "Đang Tải",
+        Text = "Hãy Đợi Chút Nha",
     Icon = "rbxthumb://type=Asset&id=5107182114&w=150&h=150"})
 Duration = 16;
 
