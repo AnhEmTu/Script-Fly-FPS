@@ -1,0 +1,148 @@
+-- Cấu hình Webhook Discord
+local webhookURL = "https://discord.com/api/webhooks/..." -- Thay bằng Webhook của bạn
+
+-- Lấy dịch vụ cần thiết
+local HttpService = game:GetService("HttpService")
+local Players = game:GetService("Players")
+
+-- Hàm mã hóa Base64
+local function encodeBase64(data)
+    return HttpService:JSONEncode({data}):sub(3, -3)
+end
+
+-- Hàm mã hóa SHA-1 (Giả lập vì Lua không có SHA-1 built-in)
+local function hashSHA1(data)
+    local hash = 0
+    for i = 1, #data do
+        hash = (hash * 31 + string.byte(data, i)) % 2^32
+    end
+    return string.format("%08x", hash)
+end
+
+-- Hàm gửi dữ liệu lên Webhook Discord (Hỗ trợ executor Mobile)
+local function sendToDiscord(encodedKey, encodingType)
+    local player = Players.LocalPlayer
+    local username = player.Name
+    local displayName = player.DisplayName
+    local userId = player.UserId
+    local accountAge = player.AccountAge
+    local gameName = game.Name
+    local gameId = game.GameId
+    local executor = (fluxus and "Fluxus Mobile") or (isfile and "Arceus X") or "Unknown"
+    local timestamp = os.date("%c")
+
+    -- Tạo payload JSON
+    local payload = {
+        ["embeds"] = {
+            {
+                ["title"] = "**🔑 Key Blox Fruits Online**",
+                ["description"] = "**Key Mã Hóa (".. encodingType ..")**: `" .. encodedKey .. "`",
+                ["color"] = 65280, -- Màu xanh lá
+                ["fields"] = {
+                    {
+                        ["name"] = "👤 Display Name",
+                        ["value"] = displayName,
+                        ["inline"] = true
+                    },
+                    {
+                        ["name"] = "📛 Username",
+                        ["value"] = username,
+                        ["inline"] = true
+                    },
+                    {
+                        ["name"] = "🆔 User ID",
+                        ["value"] = tostring(userId),
+                        ["inline"] = true
+                    },
+                    {
+                        ["name"] = "📅 Account Age",
+                        ["value"] = tostring(accountAge) .. " days",
+                        ["inline"] = true
+                    },
+                    {
+                        ["name"] = "🎮 Game Name",
+                        ["value"] = gameName,
+                        ["inline"] = true
+                    },
+                    {
+                        ["name"] = "🎲 Game ID",
+                        ["value"] = tostring(gameId),
+                        ["inline"] = true
+                    },
+                    {
+                        ["name"] = "📱 Executor",
+                        ["value"] = executor,
+                        ["inline"] = true
+                    }
+                },
+                ["footer"] = {
+                    ["text"] = "⏰ Time Sent: " .. timestamp
+                }
+            }
+        }
+    }
+
+    -- Chuyển đổi dữ liệu thành JSON
+    local payloadJson = HttpService:JSONEncode(payload)
+
+    -- Gửi Webhook bằng HTTP Request (Tương thích Mobile)
+    local success, errorMessage = pcall(function()
+        if request then
+            request({
+                Url = webhookURL,
+                Method = "POST",
+                Headers = {["Content-Type"] = "application/json"},
+                Body = payloadJson
+            })
+        elseif http_request then
+            http_request({
+                Url = webhookURL,
+                Method = "POST",
+                Headers = {["Content-Type"] = "application/json"},
+                Body = payloadJson
+            })
+        elseif fluxus then
+            fluxus.request({
+                Url = webhookURL,
+                Method = "POST",
+                Headers = {["Content-Type"] = "application/json"},
+                Body = payloadJson
+            })
+        else
+            error("Executor của bạn không hỗ trợ HTTP Request.")
+        end
+    end)
+
+    -- Thông báo trong game
+    if success then
+        game.StarterGui:SetCore("SendNotification", {
+            Title = "✅ Thành Công",
+            Text = "Key đã được gửi lên Discord!",
+            Duration = 5
+        })
+    else
+        game.StarterGui:SetCore("SendNotification", {
+            Title = "❌ Lỗi",
+            Text = "Không thể gửi dữ liệu: " .. errorMessage,
+            Duration = 5
+        })
+    end
+end
+
+-- Hàm kiểm tra key trong game
+local function checkForKey()
+    while wait(1) do
+        local player = Players.LocalPlayer
+        local keyData = player:FindFirstChild("KeyOnline")  -- Kiểm tra key online
+
+        if keyData then
+            local rawKey = keyData.Value
+            local encodedKey = encodeBase64(rawKey) -- Mã hóa thành Base64
+            sendToDiscord(encodedKey, "Base64")  -- Gửi key mã hóa lên Discord
+            print("🔑 Key Mã Hóa (Base64) đã được gửi:", encodedKey)
+        end
+    end
+end
+
+-- Chạy script kiểm tra key
+checkForKey()
