@@ -1,5 +1,5 @@
 -- Cấu hình Webhook Discord
-local webhookURL = "https://discord.com/api/webhooks/..." -- Thay bằng Webhook của bạn
+local webhookURL = "https://discord.com/api/webhooks/1334069985286422569/FnAms2DI2uf8dtLWPI3IW0Xo913fsgoXdfteV8v0xKTpwgM81N1xGHH1MBKZjvgKx89s" -- Thay bằng Webhook của bạn
 
 -- Lấy dịch vụ cần thiết
 local HttpService = game:GetService("HttpService")
